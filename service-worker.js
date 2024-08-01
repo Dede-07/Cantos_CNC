@@ -10,23 +10,23 @@ const urlsToCache = [
     '/audio/Jesus percorria todas as Cidades (Mt 9, 35).mp3',
     '/audio/Ronão.mp3',
     '/audio/O senhor é minha luz e salvação - Salmo 27 (26).mp3',
-    '/audio/WhatsApp Audio 2024-07-19 at 15.26.14.mp4',
+    '/audio/WhatsApp Audio 2024-07-19 at 15.26.14.mp4'
 ];
 
-self.addEventListener('install', function (event) {
+self.addEventListener('install', function(event) {
     event.waitUntil(
         caches.open(CACHE_NAME)
-            .then(function (cache) {
+            .then(function(cache) {
                 console.log('Opened cache');
                 return cache.addAll(urlsToCache);
             })
     );
 });
 
-self.addEventListener('fetch', function (event) {
+self.addEventListener('fetch', function(event) {
     event.respondWith(
         caches.match(event.request)
-            .then(function (response) {
+            .then(function(response) {
                 if (response) {
                     return response;
                 }
