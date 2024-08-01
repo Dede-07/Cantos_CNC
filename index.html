@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cantos CNC</title>
+    <link rel="stylesheet" type="text/css" href="edit.css">
+    <link rel="icon" href="img/Caminho-Neocatecumenal-730x438.png" type="png">
+</head>
+
+<body>
+    <div style="display: flex; justify-content: center;" class="flx">
+        <img style="max-width: 120px;margin-top: 10px;" src="img/Caminho-Neocatecumenal-730x438.png">
+        <h1> Cantos - Caminho Neocatecumenal</h1>
+        <img style="max-width: 120px;margin-top: 10px;" src="img/Caminho-Neocatecumenal-730x438.png">
+    </div>
+    <hr>
+    <div class="som">
+        <div class="highlight">
+            <p><b>Amo o Senhor</b></p>
+            <audio id="audio1" controls>
+                <source src="audio/Amo o Senhor - Salmo 116 (114-115).mp3" type="audio/mpeg">
+            </audio>
+            <hr>
+            <p><b>Como São Amáveis tuas moradas Senhor</b></p>
+            <audio id="audio2" controls>
+                <source src="audio/Como são amáveis tuas moradas - Salmo 84 (83).mp3" type="audio/mpeg">
+            </audio>
+            <hr>
+            <p><b>Eu venho reunir</b></p>
+            <audio id="audio3" controls>
+                <source src="audio/Eu venho Reunir (Is 66, 18-21)  - 50 anos do Caminho Neocatecumenal no Brasil.mp3"
+                    type="audio/mpeg">
+            </audio>
+            <hr>
+            <p><b>Jesus percorria todas as Cidades</b></p>
+            <audio id="audio4" controls>
+                <source src="audio/Jesus percorria todas as Cidades (Mt 9, 35).mp3" type="audio/mpeg">
+            </audio>
+            <hr>
+            <p><b>Maria, pequena Maria - Ronão</b></p>
+            <audio id="audio5" controls>
+                <source src="audio/Ronão.mp3" type="audio/mpeg">
+            </audio>
+            <hr>
+            <p><b>O Senhor é minha luz e salvação</b></p>
+            <audio id="audio6" controls>
+                <source src="audio/O senhor é minha luz e salvação - Salmo 27 (26).mp3" type="audio/mpeg">
+            </audio>
+            <hr>
+            <p><b>Shemá - Ronão</b></p>
+            <audio id="audio7" controls>
+                <source src="audio/WhatsApp Audio 2024-07-19 at 15.26.14.mp4" type="audio/mpeg">
+            </audio>
+            <hr>
+        </div>
+    </div>
+    <br><br><br>
+    <a class="botao" href="index.html">Voltar</a>
+
+    <script>
+
+        const audios = document.querySelectorAll('audio');
+        for (let i = 0; i < audios.length - 1; i++) {
+            audios[i].addEventListener('ended', function () {
+                audios[i + 1].play();
+            });
+        }
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/service-worker.js').then(function (registration) {
+                    // Registration was successful
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function (err) {
+                    // registration failed :(
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>
